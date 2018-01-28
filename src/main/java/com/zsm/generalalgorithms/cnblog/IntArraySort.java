@@ -1,8 +1,5 @@
 package com.zsm.generalalgorithms.cnblog;
 
-import java.time.temporal.Temporal;
-
-
 /**
  * @Author: zengsm.
  * @Description:
@@ -128,32 +125,43 @@ public class IntArraySort
      */
     public static int[] insertSort(int[] arr)
     {
-        int length = arr.length - 1;
-        for (int i = length-1; i >= 0; i--)
-        {
-            int max = arr[i];
-            int index = max - 1;
-            while (index < length && arr[index] > max)
-            {
-                arr[index +1] = arr[index];
-                index++;
-            }
-            arr[index-1] = max;
-        }
-
-        int length=arr.length;
+        int length = arr.length;
+        //从前往后插入排序
         for (int i = 1; i < length; i++)
         {
-            int temp=arr[i];
-            int index=i-1;
-            while (index>=0&&arr[index]>temp)
+            int min = arr[i];
+            int index = i - 1;
+            while (index >= 0 && arr[index] > min)
             {
-                arr[index+1]=arr[index];
+                arr[index + 1] = arr[index];
                 index--;
             }
-            arr[index+1]=temp;
+            arr[index + 1] = min;
         }
+        return arr;
+    }
 
+    /**
+     * 插入排序：通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应的位置并插入
+     *
+     * @param arr
+     * @return
+     */
+    public static int[] insertSort1(int[] arr)
+    {
+        int length = arr.length - 1;
+        //从后往前插入排序
+        for (int i = length - 1; i >= 0; i--)
+        {
+            int max = arr[i];
+            int index = i + 1;
+            while (index <= length && arr[index] < max)
+            {
+                arr[index - 1] = arr[index];
+                index++;
+            }
+            arr[index - 1] = max;
+        }
         return arr;
     }
 }
