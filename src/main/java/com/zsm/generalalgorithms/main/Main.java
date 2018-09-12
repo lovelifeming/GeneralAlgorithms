@@ -10,20 +10,14 @@ public class Main
 {
     public static void main(String[] args)
     {
-        
+
     }
 
-    public static void sop(int[] arr)
+    public static void sop(Object... obj)
     {
-        System.out.println("");
-        for (int i : arr)
+        for (Object o : obj)
         {
-            System.out.print(i + " ");
+            System.out.println(o);
         }
-    }
-
-    public static void sop(Object obj)
-    {
-        System.out.println(obj);
     }
 }
